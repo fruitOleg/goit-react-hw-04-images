@@ -6,7 +6,7 @@ import {
   SearchFormInput,
 } from './Searchbar.styled';
 
-export const Searchbar = () => {
+export const Searchbar = ({ saveQueryParams }) => {
   const [localQuery, setLocalQuery] = useState('');
 
   const onChangeQuery = e => {
@@ -15,7 +15,7 @@ export const Searchbar = () => {
 
   const onSubmitForm = e => {
     e.preventDefault();
-    this.props.saveQueryParams(localQuery);
+    saveQueryParams(localQuery);
   };
 
   return (
