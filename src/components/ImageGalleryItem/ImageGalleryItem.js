@@ -16,7 +16,7 @@ export const ImageGalleryItem = ({
       <ModalWindow
         isModalOpen={isModalOpen}
         isModalClose={closeModal}
-        imgModal={largeImageURL}
+        largeImageURL={largeImageURL}
       />
     </StyledImageGalleryItem>
   );
