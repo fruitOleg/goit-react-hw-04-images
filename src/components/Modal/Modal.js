@@ -1,8 +1,14 @@
 import Modal from 'react-modal';
 import css from './Modal.module.css';
+
 Modal.setAppElement('#root');
 
-export const ModalWindow = ({ isModalOpen, imgModal, isModalClose }) => {
+export const ModalWindow = ({
+  isModalOpen,
+  largeImageURL,
+  tags,
+  isModalClose,
+}) => {
   return (
     <Modal
       isOpen={isModalOpen}
@@ -10,7 +16,7 @@ export const ModalWindow = ({ isModalOpen, imgModal, isModalClose }) => {
       className={css.Modal}
       overlayClassName={css.Overlay}
     >
-      <img src={imgModal.largeImageURL} alt={imgModal.tags} />
+      <img src={largeImageURL} alt={tags} />
     </Modal>
   );
 };

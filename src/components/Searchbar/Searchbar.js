@@ -1,36 +1,69 @@
-import { Header, SearchForm, SearchFormButton, SearchFormInput } from './Searchbar.styled';
-import { Component } from 'react';
+import { useState } from 'react';
+import {
+  Header,
+  SearchForm,
+  SearchFormButton,
+  SearchFormInput,
+} from './Searchbar.styled';
 
-export default class SearchBar extends Component {
-  state = {
-    localQuery: ''
-  }
+export const Searchbar = () => {
+  const [localQuery, setLocalQuery] = useState('');
 
-  onChangeQuery = (e) => {
-    this.setState({localQuery: e.target.value})
-  }
+  const onChangeQuery = e => {
+    setLocalQuery(e.target.value);
+  };
 
-  onSubmitForm = (e) => {
-    e.preventDefault()
-    this.props.saveQueryParams(this.state.localQuery);
-  }
+  const onSubmitForm = e => {
+    e.preventDefault();
+    this.props.saveQueryParams(localQuery);
+  };
 
-  render() {
-    return (
-      <Header>
-        <SearchForm onSubmit={this.onSubmitForm}>
-          <SearchFormButton type='submit'></SearchFormButton>
-          <SearchFormInput
-            type='text'
-            autocomplete='off'
-            name='search'
-            autofocus
-            placeholder='Search images and photos'
-            onChange={this.onChangeQuery}
-          />
-        </SearchForm>
-      </Header>
-    );
-  }
-}
+  return (
+    <Header>
+      <SearchForm onSubmit={onSubmitForm}>
+        <SearchFormButton type="submit"></SearchFormButton>
+        <SearchFormInput
+          type="text"
+          autocomplete="off"
+          name="search"
+          autofocus
+          placeholder="Search images and photos"
+          onChange={onChangeQuery}
+        />
+      </SearchForm>
+    </Header>
+  );
+};
 
+// export default class SearchBar extends Component {
+//   state = {
+//     localQuery: '',
+//   };
+//
+//   onChangeQuery = e => {
+//     this.setState({ localQuery: e.target.value });
+//   };
+//
+//   onSubmitForm = e => {
+//     e.preventDefault();
+//     this.props.saveQueryParams(this.state.localQuery);
+//   };
+//
+//   render() {
+//     return (
+//       <Header>
+//         <SearchForm onSubmit={this.onSubmitForm}>
+//           <SearchFormButton type="submit"></SearchFormButton>
+//           <SearchFormInput
+//             type="text"
+//             autocomplete="off"
+//             name="search"
+//             autofocus
+//             placeholder="Search images and photos"
+//             onChange={this.onChangeQuery}
+//           />
+//         </SearchForm>
+//       </Header>
+//     );
+//   }
+// }
